@@ -1,14 +1,19 @@
-const inputBox = document.getElementById("name");
+const inputBox = document.getElementById("box");
 const inputText = inputBox.value;
+const submitButton = document.getElementById("button");
 
-let cityName = "";
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  let number = "";
 
-const key = "3e4422d6e04655f7e63efa6a0266b041";
-const url = `api.openweathermap.org/data/2.5/weather?q=${inputText}&appid=${key}`;
+  number = inputBox.value;
+  console.log(number);
 
-console.log(url);
+  let url = `https://swapi.dev/api/people/${number}`;
 
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => console.dir(data))
-//   .then();
+  console.log(url);
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.dir(data));
+});
